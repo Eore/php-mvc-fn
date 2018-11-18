@@ -1,1 +1,29 @@
-<h1>tambah berita <?= $data[] ?></h1>
+<div id="tambah-berita">
+  <form action="/berita/tambah" method="post">
+    <table>
+      <tr>
+        <td>Kategori</td>
+        <td>
+          <select name="idKategori">
+            <?php foreach($data['listKategori'] as $i => $val) { ?>
+              <option value="<?= $val['kode'] ?>"><?= $val['kategori'] ?></option>
+            <?php } ?>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>Judul</td>
+        <td>
+          <input type="text" name="judul">
+        </td>
+      </tr>
+      <tr>
+        <td>Isi</td>
+        <td>
+          <textarea name="isi" cols="30" rows="10"></textarea>
+        </td>
+      </tr>
+    </table>
+    <input type="submit" value="Input">
+  </form>
+</div>

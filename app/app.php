@@ -1,5 +1,6 @@
 <?php namespace app;
 
+require 'app/cores/database.php';
 require 'app/cores/router.php';
 
 function main() {
@@ -9,11 +10,11 @@ function main() {
     require "app/controllers/$controller.php";
     if (function_exists("\controller\\$controller\\$method")) {
       $fn = "\controller\\$controller\\$method";
-      $fn();
+      $fn(\router\getParams());
     } else {
-      echo '404';
+      header("LOCATION: /$controller/index");
     }
   } else {
-    echo '404';
+    header('LOCATION: /error/notfound');
   }
 }

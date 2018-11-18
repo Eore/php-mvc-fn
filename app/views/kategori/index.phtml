@@ -1,0 +1,40 @@
+<div id="tambah-kategori">
+  <form action="/kategori/tambah" method="post">
+    <table>
+      <tr>
+        <td>Kode</td>
+        <td>
+          <input type="text" name="kode">
+        </td>
+      </tr>
+      <tr>
+        <td>Kategori</td>
+        <td>
+          <input type="text" name="kategori">
+        </td>
+      </tr>
+    </table>
+    <input id="test" type="submit" value="Input">
+  </form>
+</div>
+
+<div id="list-kategori">
+  <table>
+    <thead>
+      <tr>
+        <td>No</td>
+        <td>Kode</td>
+        <td>Kategori</td>
+      </tr>
+    </thead>
+    <tbody>
+      <?php foreach($data['list'] as $i => $val) { ?>
+        <tr>
+          <td><?= $i + 1 ?></td>
+          <td><?= $val['kode'] ?></td>
+          <td><?= $val['kategori'] ?></td>
+        </tr>
+      <?php } ?>
+    </tbody>
+  </table>
+</div>
