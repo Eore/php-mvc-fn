@@ -1,7 +1,12 @@
 <div>
   <?php foreach($data['list'] as $i => $val) { ?>
     <div class="berita">
-      <h3><?= $val['judul'] ?></h3>
+      <div>
+        <img src="public/img<?= $val['gambar']?>" alt="<?= $val['gambar']?>">
+      </div>
+      <div>
+        <h3><?= $val['judul'] ?></h3>
+      </div>
       <div><?= $val['kategori']?> (<?= $val['createAt'] ?>)</div>
       <div>
         <?= $val['isi'] ?>

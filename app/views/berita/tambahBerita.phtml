@@ -1,5 +1,5 @@
 <div id="tambah-berita">
-  <form action="/berita/tambah" method="post">
+  <form action="/berita/tambah" method="post" enctype="multipart/form-data">
     <table>
       <tr>
         <td>Kategori</td>
@@ -21,6 +21,12 @@
         <td>Isi</td>
         <td>
           <textarea name="isi" cols="30" rows="10"></textarea>
+        </td>
+      </tr>
+      <tr>
+        <td>Gambar</td>
+        <td>
+          <input type="file" name="gambar">
         </td>
       </tr>
     </table>
