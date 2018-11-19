@@ -21,13 +21,7 @@ function tambah_berita() {
 } 
 
 function tambah() {
-  // echo '<pre>';
-  // var_dump($_POST);
-  // var_dump($_FILES);
-  // var_dump(getimagesize($_FILES['gambar']['tmp_name']));
-  // echo '</pre>';
-  // \model\berita\tambahBerita($_REQUEST['idKategori'], $_REQUEST['judul'], $_REQUEST['isi']);
-  var_dump('public/img/'.$_FILES['name']);
+  \model\berita\tambahBerita($_REQUEST['idKategori'], $_REQUEST['judul'], $_REQUEST['isi']);
   move_uploaded_file($_FILES['gambar']['tmp_name'], 'public/img/'.$_FILES['gambar']['name']);
-  // header('LOCATION: /berita');
+  header('LOCATION: /berita');
 }
