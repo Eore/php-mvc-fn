@@ -11,13 +11,36 @@ function index() {
   ]);
 }
 
-function tambah($params) {
+function tambah() {
   \model\kategori\tambahKategori($_REQUEST['kode'], $_REQUEST['kategori']);
   header("LOCATION: /kategori");
 }
 
-function edit($params) {
-  // if ($params != null) {
+function edit($params, $query) {
+  $kode = $query['kode'];
+  switch ($params[0]) {
+    case 'simpan':
+      \model\kategori\editKategori($kode, $_REQUEST['kategori']);
+      header("LOCATION: /kategori");
+      break;
+    
+    default:
+      $kategori = \model\kategori\listKategori($kode)[0];
+      if ($kategori != null) {
+        \view\render('kategori/edit', [
+          'title' => 'Edit Kategori '.$kategori['kategori'],
+          'kode' => $kategori['kode'],
+          'kategori' => $kategori['kategori']
+        ]);
+      } else {
+        header('LOCATION: /error/notfound');
+      }
+      break;
+  }
+}
 
-  // } e
+function hapus($_, $query) {
+  $kode = $query['kode'];
+  \model\kategori\hapusKategori($kode);
+  header("LOCATION: /kategori");
 }

@@ -8,7 +8,7 @@
     gambar varchar(100) not null,
     createAt datetime default now(),
     kode_kategori varchar(5) not null,
-    foreign key (kode_kategori) references kategori(kode)
+    foreign key (kode_kategori) references kategori(kode) on delete cascade
   )
 ");
 
@@ -26,4 +26,13 @@ function listBerita($id = null) {
   $pre = \database\connect()->prepare($sql);
   $pre->execute([$id]);
   return $pre->fetchAll();
+}
+
+function hapusBerita($id) {
+  $pre = \database\connect()->prepare('delete from berita where id = ?');
+  $pre->execute([$id]);
+}
+
+function editBerita($id, $newData) {
+
 }

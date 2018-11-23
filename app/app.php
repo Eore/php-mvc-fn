@@ -14,7 +14,7 @@ function main() {
     require "app/controllers/$controller.php";
     if (function_exists("\controller\\$controller\\$method")) {
       $fn = "\controller\\$controller\\$method";
-      $fn(\router\getParams());
+      $fn(\router\getParams(), \router\getQuery());
     } else {
       header("LOCATION: /$controller/index");
     }

@@ -25,6 +25,7 @@
         <td>No</td>
         <td>Kode</td>
         <td>Kategori</td>
+        <td>Aksi</td>
       </tr>
     </thead>
     <tbody>
@@ -33,6 +34,10 @@
           <td><?= $i + 1 ?></td>
           <td><?= $val['kode'] ?></td>
           <td><?= $val['kategori'] ?></td>
+          <td>
+            <a href="/kategori/edit/?kode=<?= $val['kode'] ?>">Edit</a>
+            <a href="/kategori/hapus/?kode=<?= $val['kode'] ?>">Hapus</a>
+          </td>
         </tr>
       <?php } ?>
     </tbody>

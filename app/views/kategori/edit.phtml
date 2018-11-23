@@ -1,0 +1,19 @@
+<div id="tambah-kategori">
+  <form action="/kategori/edit/simpan/?kode=<?= $data['kode'] ?>" method="post">
+    <table>
+      <tr>
+        <td>Kode</td>
+        <td>
+          <input disabled type="text" value="<?= $data['kode'] ?>">
+        </td>
+      </tr>
+      <tr>
+        <td>Kategori</td>
+        <td>
+          <input type="text" name="kategori" value="<?= $data['kategori'] ?>">
+        </td>
+      </tr>
+    </table>
+    <input id="test" type="submit" value="Simpan">
+  </form>
+</div>
