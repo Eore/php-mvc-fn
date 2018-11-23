@@ -21,7 +21,12 @@ function tambah_berita() {
 } 
 
 function tambah() {
-  \model\berita\tambahBerita($_REQUEST['idKategori'], $_REQUEST['judul'], $_REQUEST['isi']);
+  \model\berita\tambahBerita(
+    $_REQUEST['idKategori'],
+    $_REQUEST['judul'],
+    $_REQUEST['isi'],
+    $_FILES['gambar']['name']
+  );
   move_uploaded_file($_FILES['gambar']['tmp_name'], 'public/img/'.$_FILES['gambar']['name']);
   header('LOCATION: /berita');
 }
