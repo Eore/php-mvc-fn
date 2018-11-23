@@ -21,12 +21,15 @@ function tambah_berita() {
 } 
 
 function tambah() {
+  $uid = dechex(time().rand(0,99999999));
+  $ext = explode('/',$_FILES['gambar']['type'])[1];
+  $gambar = $uid.'.'.$ext;
   \model\berita\tambahBerita(
     $_REQUEST['idKategori'],
     $_REQUEST['judul'],
     $_REQUEST['isi'],
-    $_FILES['gambar']['name']
+    $gambar
   );
-  move_uploaded_file($_FILES['gambar']['tmp_name'], 'public/img/'.$_FILES['gambar']['name']);
+  move_uploaded_file($_FILES['gambar']['tmp_name'], 'public/img/'.$gambar);
   header('LOCATION: /berita');
 }
